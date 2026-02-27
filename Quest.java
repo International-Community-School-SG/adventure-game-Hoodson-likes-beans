@@ -32,7 +32,8 @@ public class Quest
         
         world = new World();
         
-        player = new Player("Fred");
+        String name = getInput("What is your name?")[0];
+        player = new Player(name);
         player.room = world.start;
     	commands = new Commands();
     	gameLoop();
@@ -45,7 +46,7 @@ public class Quest
     */
     public static void gameLoop() {
     	
-    	String prompt = "What would you like to do first?";
+    	String prompt = "What would you like to do first?\nType \"help\" for a list of commands.";
     	while(player.isPlaying()){
     		String[] order = getInput(prompt);
     		prompt = "What would you like to do next?";
