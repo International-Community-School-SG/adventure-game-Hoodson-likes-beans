@@ -67,13 +67,18 @@ public class World{
 		 */
 		stuff.clear();
 		rooms.put("ROOM3",new Room("ROOM3","This room has no items.",new Inventory(stuff)));
+
+	 // This is important to reset the items for each room.
+		stuff.add(new Item("ROCK","Pretty hard."));
+		
+		rooms.put("ROOM4",new Room("ROOM4","This is the next room.",new Inventory(stuff)));
 		
         /**
          * Once all the rooms are created, we need to also add connections between all rooms
          */
 		addConnections("ROOM1","ROOM2",'N');  // by default this will add a connection both ways
 		addConnections("ROOM2","ROOM3",'N',false);  // now the player will be stuck in room 3
-
+		addConnections("ROOM1","ROOM4",'E');
 		
 		
 		
@@ -104,6 +109,8 @@ public class World{
 		
 		opposite.put('N', 'S');
 		opposite.put('S', 'N');
+		opposite.put('E', 'W');
+		opposite.put('W', 'E');
 		//Need to complete opposite for other directions
 		
 		if(both) {
