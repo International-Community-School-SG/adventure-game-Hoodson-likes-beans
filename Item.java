@@ -45,6 +45,16 @@ public class Item{
         setWeight(0);
     }
     
+    private boolean isWeapon(Item item)
+    {
+       //change ts later
+        if (item == item)
+        {
+            return true;
+        }
+        return false;
+    }
+    
     /**
      * The string is the name and description.
      */
