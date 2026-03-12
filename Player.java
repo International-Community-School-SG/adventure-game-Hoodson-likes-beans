@@ -4,7 +4,17 @@ public class Player extends ObjectWithInventory{
 	 * The name of the player
 	 */
 	private String name; 
-	/**
+	
+    private int health = 100;
+    
+    private int xp = 0;
+    
+    private int level = 1;
+    
+    private Item weapon;
+    
+    private Item armor;
+    /**
 	 * The room the player is currently in
 	 */
     public Room room = new Room("VOID","Not a real room");
