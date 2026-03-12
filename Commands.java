@@ -14,7 +14,7 @@ public class Commands{
 	 *  - must also be added in the runCommand
 	 *  - must also write the method to implement the command
 	 */
-	String[] validCommands = {"GO","TAKE","DROP","LOOK", "QUIT","INVENTORY"};
+	String[] validCommands = {"GO","TAKE","DROP","LOOK", "QUIT","INVENTORY","ATTACK"};
 	
 	/**
 	 * Nothing to initialize
@@ -61,6 +61,8 @@ public class Commands{
     				return inventory(words,player,world);
     			case "HELP":
     				return help(words,player,world);
+               case "ATTACK":
+                    return attack(words,player,world);
     		
     			/**
     			 * Simple commands can just be executed here without a separate method
@@ -186,4 +188,12 @@ public class Commands{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
+    private boolean attack(String[] words, Player player, World world)
+    {
+        System.out.println("Shut up");
+        return true;
+    }
+
 }
