@@ -8,10 +8,9 @@ public class Item{
      * The description of the item
      */
     private String description;  
-    /**
-     * The weight of the item (this is optional if you want it)
-     */
-    private int weight;   
+    
+     
+    
     
     /**
      * You may want to add more attributes for your items based on the functionality needed
@@ -25,7 +24,8 @@ public class Item{
      * @param myDescription - the description
      * @param myWeight - the weight
      */
-    public Item(String myName, String myDescription, int myWeight){
+    public Item(String myName, String myDescription, int myWeight)
+    {
         
         name = myName;
         description = myDescription;
@@ -52,9 +52,6 @@ public class Item{
         return name + "\n" + description;
     }
     
-    public int getWeight() {
-    	return weight;
-    }
     
     public void setWeight(int weight) {
     	this.weight = weight;

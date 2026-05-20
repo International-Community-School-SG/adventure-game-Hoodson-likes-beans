@@ -14,6 +14,8 @@ public class Player extends ObjectWithInventory{
     private Item weapon;
     
     private Item armor;
+    
+    private int damage = 25;
     /**
 	 * The room the player is currently in
 	 */
@@ -30,12 +32,30 @@ public class Player extends ObjectWithInventory{
 		name = myName;
 		
 	}
-	
-	public String toString() {
+	public int getHealth() {
+		return health;
+		
+	}
+	public int getDamage() {
+		return damage;
+		
+	}
+    public int damageTaken(int damage) {
+		health -= damage;
+        if(health <= 0 )
+        {
+            
+        }
+		
+	}
+    
+    
+    public String toString() {
 		return name;
 	}
 	
-	/**
+	
+    /**
 	 * Moves the player in the given direction if possible.
 	 * 
 	 * Sets the room of the player to the new room.
