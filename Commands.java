@@ -202,18 +202,33 @@ public class Commands{
 
 
 
-    private boolean attack(String[] words, Player player, World world)
+    public boolean attack(String[] words, Player player, World world)
     {
-        System.out.println("Shut up");
+        Room current = player.room;
+        Enemy enemy = current.getEnemy();
+        
+        if(enemy == null)
+        {
+            System.out.println("You hit nothing: there are no enemies here!!")
+            return false;
+    }
+        else{
+            
+        
+        enemy.damagetaken(player.getDamage())
+        System.out.println( "You hit the enemy: The enemy has " + enemy.getHealth() + "Health left" );
+        player.damageTaken(enemy.getDamage())
+        
         return true;
     }
-
 }
+
+
 
     
     private boolean equip(String[] words, Player player, World world)
     {
-		System.out.println("Dawg you aint got nothin to equip 💔");
+		System.out.println( "Dawg you aint got nothin to equip 💔");
         return false;
 	}
 }

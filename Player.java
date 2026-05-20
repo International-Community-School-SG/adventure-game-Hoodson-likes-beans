@@ -4,7 +4,19 @@ public class Player extends ObjectWithInventory{
 	 * The name of the player
 	 */
 	private String name; 
-	/**
+	
+    private int health = 100;
+    
+    private int xp = 0;
+    
+    private int level = 1;
+    
+    private Item weapon;
+    
+    private Item armor;
+    
+    private int damage = 25;
+    /**
 	 * The room the player is currently in
 	 */
     public Room room = new Room("VOID","Not a real room");
@@ -20,12 +32,30 @@ public class Player extends ObjectWithInventory{
 		name = myName;
 		
 	}
-	
-	public String toString() {
+	public int getHealth() {
+		return health;
+		
+	}
+	public int getDamage() {
+		return damage;
+		
+	}
+    public int damageTaken(int damage) {
+		health -= damage;
+        if(health <= 0 )
+        {
+            
+        }
+		
+	}
+    
+    
+    public String toString() {
 		return name;
 	}
 	
-	/**
+	
+    /**
 	 * Moves the player in the given direction if possible.
 	 * 
 	 * Sets the room of the player to the new room.

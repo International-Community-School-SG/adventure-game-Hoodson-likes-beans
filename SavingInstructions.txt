@@ -1,4 +1,7 @@
 [ ] Commit and push at the end of every work session — this is how your teacher sees your progress
-[ ] Always run git add . → git commit -m "your message" → git push when saving your work
+[ ] Run:
+    git add .
+    git commit -m "your message"
+    git push
 [ ] Write clear, descriptive commit messages (e.g., "Added constructor for Student class" not "stuff")
 [ ] Never wait until the last minute to push — commit often!
