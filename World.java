@@ -149,22 +149,61 @@ public class World{
         name = "L1.5.5";
 		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
 		stuff.clear();
-        
-        //Creates level 2 rooms
-		
-	 // This is important to reset the items for each room.
-		stuff.add(new Item("ROCK","Pretty hard."));
-		
-		rooms.put("ROOM4",new Room("ROOM4","This is the next room.",new Inventory(stuff)));
 	
-		addConnections("ROOM1","ROOM2",'N');  // by default this will add a connection both ways
-		addConnections("ROOM2","ROOM3",'N',false);  // now the player will be stuck in room 3
-		addConnections("ROOM1","ROOM4",'E');
+		// adds connection for L1 Layer 1
+        addConnections("L1.1.1","L1.1.2",'E');
+        addConnections("L1.1.2","L1.1.3",'E');
+        addConnections("L1.1.3","L1.1.4",'E');
+        addConnections("L1.1.4","L1.1.5",'E');
+        
+        addConnections("L1.1.1","L1.2.1",'S');
+        addConnections("L1.1.2","L1.2.2",'S');
+        addConnections("L1.1.3","L1.2.3",'S');
+        addConnections("L1.1.4","L1.2.4",'S');
+        addConnections("L1.1.5","L1.2.5",'S');
 		
+        // adds connection for L1 Layer 2
+        addConnections("L1.2.1","L1.2.2",'E');
+        addConnections("L1.2.2","L1.2.3",'E');
+        addConnections("L1.2.3","L1.2.4",'E');
+        addConnections("L1.2.4","L1.2.5",'E');
+        
+        addConnections("L1.2.1","L1.3.1",'S');
+        addConnections("L1.2.2","L1.3.2",'S', false);
+        addConnections("L1.2.3","L1.3.3",'S');
+        addConnections("L1.2.4","L1.3.4",'S', false);
+        addConnections("L1.2.5","L1.3.5",'S');
+        
+        // adds connection for L1 Layer 3
+        addConnections("L1.3.1","L1.3.2",'E');
+        addConnections("L1.3.2","L1.3.3",'E');
+        addConnections("L1.3.3","L1.3.4",'E');
+        addConnections("L1.3.4","L1.3.5",'E');
+        
+        addConnections("L1.3.4","L1.4.4",'S');
+        addConnections("L1.3.5","L1.4.5",'S');
+        
+        // adds connection for L1 Layer 4
+        addConnections("L1.4.1","L1.4.2",'E');
+        addConnections("L1.4.2","L1.4.3",'E');
+        addConnections("L1.4.4","L1.4.5",'E');
+        
+        addConnections("L1.4.1","L1.5.1",'S');
+        addConnections("L1.4.3","L1.5.3",'S');
+        addConnections("L1.4.5","L1.5.5",'S');
+        
+        addConnections("L1.4.1","L1.3.1",'N', false);
+        addConnections("L1.4.3","L1.3.3",'N', false);
+        
+        // adds connection for L1 Layer 5
+        addConnections("L1.5.1","L1.5.2",'E');
+        addConnections("L1.5.2","L1.5.3",'E');
+        addConnections("L1.5.3","L1.5.4",'E');
+        addConnections("L1.5.4","L1.5.5",'E');
 		
 		
 		// Be sure to set the start room!  Replace ROOM1 with your room names.
-		start = rooms.get("ROOM1");
+		start = rooms.get("L1.3.3");
 	}
 	
 	/**

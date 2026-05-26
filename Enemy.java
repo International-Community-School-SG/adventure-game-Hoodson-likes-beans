@@ -2,12 +2,12 @@ public class Enemy extends Player
 {
     
     private int health = 50;
-    private String type = "";
+    private String kind = "";
     
-    public Enemy(int hp, String enemyType)
+    public Enemy()
     {
-        health = hp;
-        type = enemyType;
+        health = 50;
+        kind = "enemyType";
     }
     
 }

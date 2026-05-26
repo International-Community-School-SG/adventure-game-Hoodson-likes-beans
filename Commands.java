@@ -172,7 +172,7 @@ public class Commands{
 	 */
 	private char getDirection(String[] words)
     {
-		String[] directions = {"N","NORTH","S","SOUTH"};
+		String[] directions = {"N","NORTH","S","SOUTH", "E", "EAST", "W", "WEST"};
 		for (String direction : directions) {
 			if (Arrays.asList(words).contains(direction)) {
 				return direction.charAt(0);
