@@ -44,9 +44,11 @@ public class Player extends ObjectWithInventory{
 		health -= damage;
         if(health <= 0 )
         {
+            System.out.println("You are dead, type respawn to start again");
+            return 0;
             
         }
-		
+		return health;
 	}
     
     

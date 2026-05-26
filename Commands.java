@@ -209,15 +209,15 @@ public class Commands{
         
         if(enemy == null)
         {
-            System.out.println("You hit nothing: there are no enemies here!!")
+            System.out.println("You hit nothing: there are no enemies here!!");
             return false;
     }
         else{
             
         
-        enemy.damagetaken(player.getDamage())
+        enemy.damageTaken(player.getDamage());
         System.out.println( "You hit the enemy: The enemy has " + enemy.getHealth() + "Health left" );
-        player.damageTaken(enemy.getDamage())
+        player.damageTaken(enemy.getDamage());
         
         return true;
     }
