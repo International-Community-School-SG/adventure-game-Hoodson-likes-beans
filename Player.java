@@ -6,14 +6,8 @@ public class Player extends ObjectWithInventory{
 	private String name; 
 	
     private int health = 100;
+
     
-    private int xp = 0;
-    
-    private int level = 1;
-    
-    private Item weapon;
-    
-    private Item armor;
     
     private int damage = 25;
     /**
@@ -40,17 +34,23 @@ public class Player extends ObjectWithInventory{
 		return damage;
 		
 	}
-    public int damageTaken(int damage) {
+    
+    public int damageTaken(int damage){
 		health -= damage;
+        
         if(health <= 0 )
         {
             System.out.println("You are dead, type respawn to start again");
+            
             return 0;
             
         }
-		return health;
+		 return health;
 	}
-    
+    public void addDamage()
+    {
+        damage++;
+    }
     
     public String toString() {
 		return name;

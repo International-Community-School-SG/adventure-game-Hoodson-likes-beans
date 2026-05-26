@@ -219,8 +219,13 @@ public class Commands{
         System.out.println( "You hit the enemy: The enemy has " + enemy.getHealth() + "Health left" );
         player.damageTaken(enemy.getDamage());
         
-        return true;
-    }
+        if (enemy.isDead())
+        {
+            current.removeEnemy();
+            player.addDamge();
+        }
+        
+}
 }
 
 

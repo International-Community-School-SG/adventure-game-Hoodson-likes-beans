@@ -91,7 +91,10 @@ public class Room extends ObjectWithInventory{
     {
         return enemy;
     }
-
+    public void removeEnemy()
+    {
+        this.enemy = null;
+    }
     
     /**
      * Adds a connection to the given room in the given direction
