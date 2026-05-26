@@ -87,6 +87,12 @@ public class Room extends ObjectWithInventory{
     	return name + "\n" + description + "\n" + inventory.toString();
     }
     
+    public Enemy getEnemy()
+    {
+        return enemy;
+    }
+
+    
     /**
      * Adds a connection to the given room in the given direction
      * DOES NOT add the return connection
