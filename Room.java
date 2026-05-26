@@ -11,6 +11,7 @@ public class Room extends ObjectWithInventory{
 	 * The description of the room.  This will be used when the player looks around.
 	 */
     private String description; // describes the room
+    private Enemy enemy;
     
     /**
      * A mapping between directions and the room that is in that direction.
@@ -25,8 +26,10 @@ public class Room extends ObjectWithInventory{
      * @param myDescription - the description of the room
      * @param inv - the items that are in the room
      */
-    public Room(String myName, String myDescription, Inventory inv){
-    	name = myName;
+    
+     public Room(String myName, String myDescription, Inventory inv, Enemy enemy){
+        name = myName;
+        this.enemy = enemy;
     	description = myDescription;
     	setInventory(inv);
     	go.put('N', null);
@@ -38,9 +41,32 @@ public class Room extends ObjectWithInventory{
     	
     }
     
-    /**
-     * Initialization with no starting items.
-     */
+    public Room(String myName, String myDescription, Enemy enemy){
+    	name = myName;
+        this.enemy = enemy;
+    	description = myDescription;
+    	go.put('N', null);
+    	go.put('S', null);
+    	go.put('W', null);
+    	go.put('E', null);
+    	go.put('U', null);
+    	go.put('D', null);
+    	
+    }
+    
+     public Room(String myName, String myDescription, Inventory inv){
+    	name = myName;
+    	description = myDescription;
+    	setInventory(inv);
+    	go.put('N', null);
+    	go.put('S', null);
+    	go.put('W', null);
+    	go.put('E', null);
+    	go.put('U', null);
+    	go.put('D', null);
+    	
+    }
+
     public Room(String myName, String myDescription){
     	name = myName;
     	description = myDescription;
@@ -59,6 +85,15 @@ public class Room extends ObjectWithInventory{
      */
     public String toString() {
     	return name + "\n" + description + "\n" + inventory.toString();
+    }
+    
+    public Enemy getEnemy()
+    {
+        return enemy;
+    }
+    public void removeEnemy()
+    {
+        this.enemy = null;
     }
     
     /**

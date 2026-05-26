@@ -14,7 +14,10 @@ public class Commands{
 	 *  - must also be added in the runCommand
 	 *  - must also write the method to implement the command
 	 */
-	String[] validCommands = {"GO","TAKE","DROP","LOOK", "QUIT","INVENTORY"};
+
+
+	String[] validCommands = {"GO","TAKE","DROP","LOOK", "QUIT","INVENTORY", "EQUIP", "ATTACK"};
+
 	
 	/**
 	 * Nothing to initialize
@@ -49,18 +52,25 @@ public class Commands{
     			 *  - If you don't use the return statement in a given case, the code will continue into the next case
     			 */
     
-    			case "GO":  
+                case "GO":  
     				return go(words,player,world);
-    			case "TAKE": case "GET":   //This runs for the command "TAKE" or "GET"
+                case "TAKE": case "GET":   //This runs for the command "TAKE" or "GET"
     				return take(words,player,world);
-    			case "LOOK":
+                case "LOOK":
     				return look(words,player,world);
-    			case "DROP":
+                case "DROP":
     				return drop(words,player,world);
-    			case "INVENTORY":
+                case "INVENTORY":
     				return inventory(words,player,world);
-    			case "HELP":
+                case "HELP":
     				return help(words,player,world);
+
+               case "ATTACK":
+                    return attack(words,player,world);
+
+                case "EQUIP":
+    				return equip(words,player,world);
+
     		
     			/**
     			 * Simple commands can just be executed here without a separate method
@@ -160,8 +170,9 @@ public class Commands{
 	 * 
 	 * @return the direction found as a char 
 	 */
-	private char getDirection(String[] words) {
-		String[] directions = {"N","NORTH","S","SOUTH"};
+	private char getDirection(String[] words)
+    {
+		String[] directions = {"N","NORTH","S","SOUTH", "E", "EAST", "W", "WEST"};
 		for (String direction : directions) {
 			if (Arrays.asList(words).contains(direction)) {
 				return direction.charAt(0);
@@ -174,7 +185,8 @@ public class Commands{
     /**
      * Help the player out by listing the valid commands
      */
-	private boolean help(String[] words, Player player, World world) {
+	private boolean help(String[] words, Player player, World world)
+    {
 		System.out.println(validCommands);
 		return true;
 	}
@@ -182,8 +194,47 @@ public class Commands{
     /**
      * List the items the player is holding currently
      */
-	private boolean inventory(String[] words, Player player, World world) {
+	private boolean inventory(String[] words, Player player, World world)
+    {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
+
+    public boolean attack(String[] words, Player player, World world)
+    {
+        Room current = player.room;
+        Enemy enemy = current.getEnemy();
+        
+        if(enemy == null)
+        {
+            System.out.println("You hit nothing: there are no enemies here!!");
+            return false;
+    }
+        else{
+            
+        
+        enemy.damageTaken(player.getDamage());
+        System.out.println( "You hit the enemy: The enemy has " + enemy.getHealth() + "Health left" );
+        player.damageTaken(enemy.getDamage());
+        
+        if (enemy.isDead())
+        {
+            current.removeEnemy();
+            player.addDamge();
+        }
+        
 }
+}
+
+
+
+    
+    private boolean equip(String[] words, Player player, World world)
+    {
+		System.out.println( "Dawg you aint got nothin to equip 💔");
+        return false;
+	}
+}
+

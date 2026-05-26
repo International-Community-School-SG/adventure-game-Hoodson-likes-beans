@@ -42,43 +42,168 @@ public class World{
 		 * Contains two items, THING1 & THING2
 		 */
 		 
-		// Creating a room requires first creating all items in that room and adding them to stuff.
-		stuff.add(new Item("THING1","Red with a 1 in a white circle."));
-		stuff.add(new Item("THING2","Red with a 2 in a white circle."));
-		
-		// Now we create the room.
-		rooms.put("ROOM1",new Room("ROOM1","This is where it starts.",new Inventory(stuff)));
-
-		/**
-		 * ROOM2
-		 * 
-		 * Contains THING3
-		 */
-		stuff.clear();  // This is important to reset the items for each room.
-		stuff.add(new Item("THING3","Red with a 3 in a white circle."));
-		
-		rooms.put("ROOM2",new Room("ROOM2","This is the next room.",new Inventory(stuff)));
-		
-		
-		/**
-		 * ROOM3
-		 * 
-		 * Contains nothing.
-		 */
+		//Creates level 1 rooms
+        stuff.add(new Item("Chest","add later"));
+        String name = "L1.1.1";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
 		stuff.clear();
-		rooms.put("ROOM3",new Room("ROOM3","This room has no items.",new Inventory(stuff)));
+        
+        name = "L1.1.2";
+		rooms.put(name,new Room(name,"This is the next room."));
+        
+        name = "L1.1.3";
+		rooms.put(name,new Room(name,"This is the next room."));
+        
+        stuff.add(new Item("Enemies","add later"));
+        name = "L1.1.4";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        name = "L1.1.5";
+		rooms.put(name,new Room(name,"This is the next room."));
+        
+        name = "L1.2.1";
+		rooms.put(name,new Room(name,"This is the next room."));
 		
-        /**
-         * Once all the rooms are created, we need to also add connections between all rooms
-         */
-		addConnections("ROOM1","ROOM2",'N');  // by default this will add a connection both ways
-		addConnections("ROOM2","ROOM3",'N',false);  // now the player will be stuck in room 3
-
+        stuff.add(new Item("Enemies","add later"));
+        name = "L1.2.2";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        stuff.add(new Item("Enemies","add later"));
+        name = "L1.2.3";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        name = "L1.2.4";
+		rooms.put(name,new Room(name,"This is the next room."));
+        
+        stuff.add(new Item("Chest","add later"));
+        name = "L1.2.5";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        stuff.add(new Item("Enemy","add later"));
+        name = "L1.3.1";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        name = "L1.3.2";
+		rooms.put(name,new Room(name,"This is the next room."));
+        
+        stuff.add(new Item("Start","add later"));
+        name = "L1.3.3";
+		rooms.put(name,new Room(name,"This is the next room."));
+        stuff.clear();
+        
+        name = "L1.3.4";
+		rooms.put(name,new Room(name,"This is the next room."));
+        
+        stuff.add(new Item("Enemy","add later"));
+        name = "L1.3.5";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        stuff.add(new Item("Chest","add later"));
+        name = "L1.4.1";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        stuff.add(new Item("Enemy","add later"));
+        name = "L1.4.2";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        name = "L1.4.3";
+		rooms.put(name,new Room(name,"This is the next room."));
+        
+        stuff.add(new Item("Enemy","add later"));
+        name = "L1.4.4";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        stuff.add(new Item("Enemy","add later"));
+        name = "L1.4.5";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        stuff.add(new Item("Key","add later"));
+        name = "L1.5.1";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        stuff.add(new Item("Enemy","add later"));
+        name = "L1.5.2";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        stuff.add(new Item("Enemy","add later"));
+        name = "L1.5.3";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+        
+        name = "L1.5.4";
+		rooms.put(name,new Room(name,"This is the next room."));
+        
+        stuff.add(new Item("Chest","add later"));
+        name = "L1.5.5";
+		rooms.put(name,new Room(name,"This is where it starts.",new Inventory(stuff)));
+		stuff.clear();
+	
+		// adds connection for L1 Layer 1
+        addConnections("L1.1.1","L1.1.2",'E');
+        addConnections("L1.1.2","L1.1.3",'E');
+        addConnections("L1.1.3","L1.1.4",'E');
+        addConnections("L1.1.4","L1.1.5",'E');
+        
+        addConnections("L1.1.1","L1.2.1",'S');
+        addConnections("L1.1.2","L1.2.2",'S');
+        addConnections("L1.1.3","L1.2.3",'S');
+        addConnections("L1.1.4","L1.2.4",'S');
+        addConnections("L1.1.5","L1.2.5",'S');
 		
+        // adds connection for L1 Layer 2
+        addConnections("L1.2.1","L1.2.2",'E');
+        addConnections("L1.2.2","L1.2.3",'E');
+        addConnections("L1.2.3","L1.2.4",'E');
+        addConnections("L1.2.4","L1.2.5",'E');
+        
+        addConnections("L1.2.1","L1.3.1",'S');
+        addConnections("L1.2.2","L1.3.2",'S', false);
+        addConnections("L1.2.3","L1.3.3",'S');
+        addConnections("L1.2.4","L1.3.4",'S', false);
+        addConnections("L1.2.5","L1.3.5",'S');
+        
+        // adds connection for L1 Layer 3
+        addConnections("L1.3.1","L1.3.2",'E');
+        addConnections("L1.3.2","L1.3.3",'E');
+        addConnections("L1.3.3","L1.3.4",'E');
+        addConnections("L1.3.4","L1.3.5",'E');
+        
+        addConnections("L1.3.4","L1.4.4",'S');
+        addConnections("L1.3.5","L1.4.5",'S');
+        
+        // adds connection for L1 Layer 4
+        addConnections("L1.4.1","L1.4.2",'E');
+        addConnections("L1.4.2","L1.4.3",'E');
+        addConnections("L1.4.4","L1.4.5",'E');
+        
+        addConnections("L1.4.1","L1.5.1",'S');
+        addConnections("L1.4.3","L1.5.3",'S');
+        addConnections("L1.4.5","L1.5.5",'S');
+        
+        addConnections("L1.4.1","L1.3.1",'N', false);
+        addConnections("L1.4.3","L1.3.3",'N', false);
+        
+        // adds connection for L1 Layer 5
+        addConnections("L1.5.1","L1.5.2",'E');
+        addConnections("L1.5.2","L1.5.3",'E');
+        addConnections("L1.5.3","L1.5.4",'E');
+        addConnections("L1.5.4","L1.5.5",'E');
 		
 		
 		// Be sure to set the start room!  Replace ROOM1 with your room names.
-		start = rooms.get("ROOM1");
+		start = rooms.get("L1.3.3");
 	}
 	
 	/**
@@ -104,6 +229,8 @@ public class World{
 		
 		opposite.put('N', 'S');
 		opposite.put('S', 'N');
+		opposite.put('E', 'W');
+		opposite.put('W', 'E');
 		//Need to complete opposite for other directions
 		
 		if(both) {
